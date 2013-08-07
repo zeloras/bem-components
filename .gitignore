@@ -12,3 +12,5 @@ desktop.pages/*/*
 !desktop.pages/*/*.bemjson.js
 
 *.sets/*
+
+release

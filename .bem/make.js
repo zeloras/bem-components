@@ -8,7 +8,8 @@ environ.extendMake(MAKE);
 require('./nodes');
 
 try {
-    var setsNodes = require(environ.getLibPath('bem-pr', 'bem/nodes/sets'));
+    var setsNodes = require(environ.getLibPath('bem-pr', 'bem/nodes/sets')),
+        siteNodes = require(environ.getLibPath('bem-gen-doc', '.bem/nodes/site'));
 } catch(e) {
     if(e.code !== 'MODULE_NOT_FOUND')
         throw e;
@@ -22,10 +23,25 @@ MAKE.decl('Arch', {
 
     bundlesLevelsRegexp: /^.+?\.pages$/,
 
-    libraries: [ 'bem-core', 'bem-pr@origin/v0.2' ],
+    libraries: [
+        'bem-core',
+        'bem-pr@origin/v0.2',
+        'bem-gen-doc @ 0.7.3',
+        'bem-bl @ 0.3',
+        'bem-json'
+    ],
 
     createCustomNodes: function(common, libs, blocks) {
-        if(!setsNodes) return;
+        if(!setsNodes || !siteNodes) return;
+
+        new siteNodes.SiteNode({
+                id : 'site',
+                root : this.root,
+                arch : this.arch,
+                levels : ['common.blocks', 'desktop.blocks'],
+                output : 'release'
+            })
+            .alterArch(null, libs);
 
         // Сборка примеров
         return setsNodes.SetsNode
@@ -107,7 +123,7 @@ MAKE.decl('ExampleNode', {
         var type = this.getNodePrefix().split('.')[0],
             resolve = PATH.resolve.bind(null, this.root),
             levels = [ ],
-            getLevels = this[(type.indexOf(environ.getConf().siteOutputFolder) === 0? 'desktop' : type) + '-levels'];
+            getLevels = this[(type.indexOf('release') === 0? 'desktop' : type) + '-levels'];
 
         getLevels && (levels = levels.concat(getLevels()));
 
