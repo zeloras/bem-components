@@ -20,6 +20,7 @@
     "bem": "~0.8.0",
     "bem-tools-autoprefixer": "~0.0.3",
     "bh": "~1.2.0",
+    "enb-bh": "^0.1.1",
     "roole": "~0.9.0",
     "csscomb": "~2.0.0",
     "jshint": "2.3.0",
