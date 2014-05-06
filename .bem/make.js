@@ -91,7 +91,8 @@ MAKE.decl('BundleNode', {
             'bh',
             'browser.js+bemhtml',
             'html',
-            'bh.html'
+            'bh.html',
+            'test.bh'
         ];
     },
 

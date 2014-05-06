@@ -11,7 +11,7 @@ exports.getTechs = function() {
     var techs = this.__base();
 
     ['browser.js+bemhtml', 'html'].forEach(getTechResolver(techs, BEMCORE_TECHS));
-    ['bh.html'].forEach(getTechResolver(techs, PRJ_TECHS));
+    ['bh.html', 'test.bh'].forEach(getTechResolver(techs, PRJ_TECHS));
 
     ['phantomjs', 'spec.bemjson.js'].forEach(getTechResolver(techs, BEMPR_TECHS));
 
