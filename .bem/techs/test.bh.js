@@ -2,7 +2,6 @@ var BEM = require('bem'),
     Q = BEM.require('Q'),
     logger = require('bem/lib/logger'),
     htmlDiffer = require('html-differ'),
-    diffLogger = require('html-differ/lib/diff-logger'),
     readFile = BEM.util.readFile;
 
 exports.API_VER = 2;
@@ -14,13 +13,13 @@ exports.techMixin = {
             readFile(output + '.html', 'utf-8'),
             readFile(output + '.bh.html', 'utf-8')
         ]).spread(function(html1, html2) {
-            var opts = { ignoreHtmlAttrs : ['id', 'for'] },
+            var opts = { ignoreHtmlAttrs : ['id', 'for'], compareHtmlAttrsAsJSON : ['data-bem'] },
                 isEqual = htmlDiffer.isEqual(html1, html2, opts);
 
             if(isEqual) return;
             console.log('----------------------------------------');
             logger.error('Difference in ', output);
-            diffLogger.log(htmlDiffer.diffHtml(html1, html2, opts));
+            htmlDiffer.bemDiff(html1, html2);
             console.log('----------------------------------------');
         });
     },
