@@ -86,14 +86,14 @@ provide(BEMDOM.decl({ block : this.name, baseBlock : BaseControl }, /** @lends b
         if(!this.hasMod('disabled')) {
             this._isPointerPressInProgress = true;
             this
-                .bindToDoc('pointerrelease', this._onPointerRelease)
+                .bindToDoc('pointerup', this._onPointerRelease)
                 .setMod('pressed');
         }
     },
 
     _onPointerRelease : function(e) {
         this._isPointerPressInProgress = false;
-        this.unbindFromDoc('pointerrelease', this._onPointerRelease);
+        this.unbindFromDoc('pointerup', this._onPointerRelease);
 
         if(dom.contains(this.elem('control'), $(e.target))) {
             this._focus();
@@ -143,7 +143,7 @@ provide(BEMDOM.decl({ block : this.name, baseBlock : BaseControl }, /** @lends b
     _doAction : functions.noop
 }, /** @lends button */{
     live : function() {
-        this.liveBindTo('control', 'pointerpress', this.prototype._onPointerPress);
+        this.liveBindTo('control', 'pointerdown', this.prototype._onPointerPress);
         return this.__base.apply(this, arguments);
     }
 }));

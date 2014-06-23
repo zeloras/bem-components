@@ -76,14 +76,14 @@ provide(BEMDOM.decl(this.name, /** @lends select.prototype */{
                 this._updateMenuHeight();
                 this._popup.setMod('visible');
                 this
-                    .bindToDoc('pointerpress', this._onDocPointerPress)
+                    .bindToDoc('pointerdown', this._onDocPointerPress)
                     .setMod('focused')
                     ._hoverCheckedOrFirstItem();
             },
 
             '' : function() {
                 this
-                    .unbindFromDoc('pointerpress', this._onDocPointerPress)
+                    .unbindFromDoc('pointerdown', this._onDocPointerPress)
                     ._popup.delMod('visible');
             }
         },
@@ -203,14 +203,14 @@ provide(BEMDOM.decl(this.name, /** @lends select.prototype */{
         if(this._isEventInPopup(e)) {
             e.preventDefault(); // prevents button blur in most browsers
             this._isPointerPressInProgress = true;
-            this.bindToDoc('pointerrelease', this._onDocPointerRelease);
+            this.bindToDoc('pointerup', this._onDocPointerRelease);
         }
     },
 
     _onDocPointerRelease : function(e) {
         this._isPointerPressInProgress = false;
         this
-            .unbindFromDoc('pointerrelease', this._onDocPointerRelease)
+            .unbindFromDoc('pointerup', this._onDocPointerRelease)
             ._button
                 .toggleMod('focused', true, '', this._isEventInPopup(e));
     },

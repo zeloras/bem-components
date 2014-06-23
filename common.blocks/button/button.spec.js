@@ -19,22 +19,22 @@ describe('button', function() {
         it('should be focused on pressrelease on itself', function() {
             button.hasMod('focused').should.be.false;
             button.domElem
-                .trigger('pointerpress')
-                .trigger('pointerrelease');
+                .trigger('pointerdown')
+                .trigger('pointerup');
             button.hasMod('focused').should.be.true;
         });
 
         it('should not be focused on pressrelease on outside', function() {
             button.hasMod('focused').should.be.false;
-            button.domElem.trigger('pointerpress');
-            $('body').trigger('pointerrelease');
+            button.domElem.trigger('pointerdown');
+            $('body').trigger('pointerup');
             button.hasMod('focused').should.be.false;
         });
     });
 
     describe('press/release', function() {
         it('should be pressed on pointerpress', function() {
-            button.domElem.trigger($.Event('pointerpress'));
+            button.domElem.trigger($.Event('pointerdown'));
             button.hasMod('pressed').should.be.true;
         });
 
@@ -54,7 +54,7 @@ describe('button', function() {
         });
 
         it('should not be pressed on pointerrelease', function() {
-            button.domElem.trigger('pointerrelease');
+            button.domElem.trigger('pointerup');
             button.hasMod('pressed').should.be.false;
         });
 
@@ -92,8 +92,8 @@ describe('button', function() {
             button
                 .on('click', spy)
                 .domElem
-                    .trigger('pointerpress')
-                    .trigger('pointerrelease');
+                    .trigger('pointerdown')
+                    .trigger('pointerup');
 
             spy.should.have.been.calledOnce;
         });
@@ -102,8 +102,8 @@ describe('button', function() {
             var spy = sinon.spy();
 
             button.on('click', spy);
-            button.domElem.trigger('pointerpress');
-            $('body').trigger('pointerrelease');
+            button.domElem.trigger('pointerdown');
+            $('body').trigger('pointerup');
 
             spy.should.not.have.been.called;
         });
@@ -130,8 +130,8 @@ describe('button', function() {
                 .on('click', spy)
                 .setMod('disabled')
                 .domElem
-                    .trigger('pointerpress')
-                    .trigger('pointerrelease');
+                    .trigger('pointerdown')
+                    .trigger('pointerup');
 
             spy.should.not.have.been.called;
         });
