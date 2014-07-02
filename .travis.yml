@@ -14,9 +14,7 @@ env:
   matrix:
     - TEST_SCOPE: lint
     - TEST_SCOPE: specs
-    # gemini is disabled due to many SauceLabs timeout errors.
-    # Will be re-enabled after problems are fixed.
-    #- TEST_SCOPE: gemini
+    - TEST_SCOPE: gemini
 
 matrix:
   fast_finish: true

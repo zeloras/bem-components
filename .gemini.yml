@@ -24,9 +24,9 @@ http:
   retries: 4
   retryDelay: 1000
 
-debug: false
-
 capabilities:
   record-screenshots: false
   record-video: false
+  idle-timeout: 300
+  sauce-advisor: false
   screen-resolution: 1024x768
