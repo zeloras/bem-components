@@ -1,0 +1,4 @@
+({
+    block : 'checkbox',
+    elem : 'box'
+})
