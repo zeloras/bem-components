@@ -11,7 +11,7 @@
         { tag : 'h2', content : 'default' },
         {
             block : 'test',
-            content : { block : 'input' },
+            content : { block : 'input', mods : { 'no-caret' : true } },
             cls : 'default-enabled'
         },
         {
@@ -26,6 +26,7 @@
             block : 'test',
             content : {
                 block : 'input',
+                mods : { 'no-caret' : true },
                 val : 'default'
             },
             cls : 'default-val-enabled'
@@ -34,6 +35,7 @@
             block : 'test',
             content : {
                 block : 'input',
+                mods : { 'no-caret' : true },
                 placeholder : 'placeholder'
             },
             cls : 'default-placeholder-enabled'
@@ -60,7 +62,7 @@
             block : 'test',
             content : {
                 block : 'input',
-                mods : { 'has-clear' : true },
+                mods : { 'has-clear' : true, 'no-caret' : true },
                 val : 'LongValLongValLongValLongValLongValLongVal'
             },
             cls : 'default-longVal-enabled'
@@ -69,7 +71,7 @@
             block : 'test',
             content : {
                 block : 'input',
-                mods : { 'has-clear' : true },
+                mods : { 'has-clear' : true, 'no-caret' : true },
                 placeholder : 'LongPlaceholderLongPlaceholderLongPlaceholder'
             },
             cls : 'default-longPlaceholder-enabled'
@@ -99,7 +101,7 @@
                 ': ',
                 {
                     block : 'input',
-                    mods : { 'has-clear' : true },
+                    mods : { 'has-clear' : true, 'no-caret' : true },
                     placeholder : 'placeholder'
                 }
             ],
@@ -122,7 +124,7 @@
             block : 'test',
             content : {
                 block : 'input',
-                mods : { type : 'textarea', 'has-clear' : true },
+                mods : { type : 'textarea', 'has-clear' : true, 'no-caret' : true },
                 val : 'value',
                 cls : 'default-textarea-val-enabled'
             },
@@ -131,7 +133,7 @@
         { tag : 'br' },
         { block : 'test', content : {
             block : 'input',
-            mods : { type : 'textarea', 'has-clear' : true },
+            mods : { type : 'textarea', 'has-clear' : true, 'no-caret' : true },
             placeholder : 'placeholder',
             cls : 'default-textarea-placeholder-enabled'
         } },
@@ -156,7 +158,7 @@
         [
             {
                 block : 'input',
-                mods : { theme : 'normal', size : 'm' },
+                mods : { theme : 'normal', size : 'm', 'no-caret' : true },
                 cls : 'normal-enabled'
             },
             {
@@ -166,13 +168,13 @@
             },
             {
                 block : 'input',
-                mods : { theme : 'normal', size : 'm' },
+                mods : { theme : 'normal', size : 'm', 'no-caret' : true },
                 val : 'default',
                 cls : 'normal-val-enabled'
             },
             {
                 block : 'input',
-                mods : { theme : 'normal', size : 'm' },
+                mods : { theme : 'normal', size : 'm', 'no-caret' : true },
                 placeholder : 'placeholder',
                 cls : 'normal-placeholder-enabled'
             },
@@ -190,13 +192,13 @@
             },
             {
                 block : 'input',
-                mods : { theme : 'normal', size : 'm', 'has-clear' : true },
+                mods : { theme : 'normal', size : 'm', 'has-clear' : true, 'no-caret' : true },
                 val : 'LongValLongValLongValLongValLongValLongVal',
                 cls : 'normal-longVal-enabled'
             },
             {
                 block : 'input',
-                mods : { theme : 'normal', size : 'm', 'has-clear' : true },
+                mods : { theme : 'normal', size : 'm', 'has-clear' : true, 'no-caret' : true },
                 placeholder : 'LongPlaceholderLongPlaceholderLongPlaceholder',
                 cls : 'normal-longPlaceholder-enabled'
             },
@@ -214,25 +216,25 @@
             },
             {
                 block : 'input',
-                mods : { theme : 'normal', size : 's' },
+                mods : { theme : 'normal', size : 's', 'no-caret' : true },
                 val : 'size s',
                 cls : 'normal-sizeS-enabled'
             },
             {
                 block : 'input',
-                mods : { theme : 'normal', size : 'm' },
+                mods : { theme : 'normal', size : 'm', 'no-caret' : true },
                 val : 'size m',
                 cls : 'normal-sizeM-enabled'
             },
             {
                 block : 'input',
-                mods : { theme : 'normal', size : 'l' },
+                mods : { theme : 'normal', size : 'l', 'no-caret' : true },
                 val : 'size l',
                 cls : 'normal-sizeL-enabled'
             },
             {
                 block : 'input',
-                mods : { theme : 'normal', size : 'xl' },
+                mods : { theme : 'normal', size : 'xl', 'no-caret' : true },
                 val : 'size xl',
                 cls : 'normal-sizeXL-enabled'
             },
@@ -273,7 +275,7 @@
                 ': ',
                 {
                     block : 'input',
-                    mods : { theme : 'normal', size : 'm', 'has-clear' : true },
+                    mods : { theme : 'normal', size : 'm', 'has-clear' : true, 'no-caret' : true },
                     placeholder : 'placeholder',
                     val : 'some value'
                 }
@@ -296,13 +298,13 @@
         [
             {
                 block : 'input',
-                mods : { theme : 'normal', size : 'm', type : 'textarea', 'has-clear' : true },
+                mods : { theme : 'normal', size : 'm', type : 'textarea', 'has-clear' : true, 'no-caret' : true },
                 val : 'value',
                 cls : 'normal-textarea-val-enabled'
             },
             {
                 block : 'input',
-                mods : { theme : 'normal', size : 'm', type : 'textarea', 'has-clear' : true },
+                mods : { theme : 'normal', size : 'm', type : 'textarea', 'has-clear' : true, 'no-caret' : true },
                 placeholder : 'placeholder',
                 cls : 'normal-textarea-placeholder-enabled'
             },
@@ -326,7 +328,7 @@
         }),
         {
             block : 'input',
-            mods : { theme : 'normal', size : 'm', 'has-clear' : true },
+            mods : { theme : 'normal', size : 'm', 'has-clear' : true, 'no-caret' : true },
             val : 'some val',
             cls : 'normal-clear-enabled'
         }
