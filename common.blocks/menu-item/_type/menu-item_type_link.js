@@ -1,6 +1,15 @@
+/**
+ * @module menu-item
+ */
+
 modules.define('menu-item', ['link'], function(provide, _, MenuItem) {
 
-provide(MenuItem.decl({ modName : 'type', modVal : 'link' }, {
+/**
+ * @exports
+ * @class menu-item
+ * @bem
+ */
+provide(MenuItem.decl({ modName : 'type', modVal : 'link' }, /** @lends menu-item.prototype */{
     onSetMod : {
         'hovered' : {
             'true' : function() {
