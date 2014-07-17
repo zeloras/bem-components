@@ -103,7 +103,7 @@ provide(BEMDOM.decl(this.name, /** @lends select.prototype */{
 
     /**
      * Get value
-     * @returns {*}
+     * @returns {String}
      */
     getVal : function() {
         return this._menu.getVal();
@@ -119,6 +119,10 @@ provide(BEMDOM.decl(this.name, /** @lends select.prototype */{
         return this;
     },
 
+    /**
+     * Get name
+     * @returns {*}
+     */
     getName : function() {
         return this.params.name;
     },
